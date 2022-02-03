@@ -1,10 +1,19 @@
 class DogStore {
+    #breeds;
+
     constructor() {
-        this.breeds = [];
+        this.#breeds = [];
     }
 
-    set breeds(){
-        
+    set breeds(val){
+        this.#breeds = val;
+
+        // updatelogic
+        console.log('updated breeds list: ', this.breeds);
+    }
+
+    get breeds(){
+        return this.#breeds;
     }
 }
 

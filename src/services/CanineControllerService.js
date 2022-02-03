@@ -11,12 +11,8 @@ class CanineControllerService extends BaseControllerService {
         this.allBreedsEndpoint = allBreedsEndpoint;
     }
 
-    getTest() {
-        console.log('getTest started');
-
-        this.baseGet(this.allBreedsEndpoint)
-            .then(res => console.log(res.data.message))
-            .catch(e => console.log(e));
+    async getAllBreeds() {
+        return this.baseGet(this.allBreedsEndpoint);
     }
 }
 
