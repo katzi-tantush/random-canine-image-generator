@@ -1,12 +1,12 @@
 class Factory {
-    objectToArr(obj) {
+    resToBreedArr(obj) {
         let keys = Object.keys(obj);
 
         return keys.map(key => {
             
             let itemFromKey = {
-                key: key,
-                val: obj[key]
+                name: key,
+                subBreeds: obj[key]
             }
 
             return itemFromKey

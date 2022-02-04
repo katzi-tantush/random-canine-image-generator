@@ -1,5 +1,9 @@
 <template>
-    
+<!-- TODO: decide if I'm having the subreeds or not -->
+    <div>
+        {{breedName}}
+        <!-- {{subBreeds}} -->
+    </div>
 </template>
 
 <script>
@@ -8,6 +12,9 @@ export default {
         props: {
             breedName: String,
             subBreeds: Array    
+        },
+        components:{
+            // SubBreed
         }
     }
 </script>
