@@ -1,8 +1,7 @@
 <template>
 <!-- TODO: decide if I'm having the subreeds or not -->
-    <div>
+    <div @click="">
         {{breedName}}
-        <!-- {{subBreeds}} -->
     </div>
 </template>
 
@@ -13,8 +12,11 @@ export default {
             breedName: String,
             subBreeds: Array    
         },
-        components:{
+        components: {
             // SubBreed
+        },
+        methods: {
+            
         }
     }
 </script>
