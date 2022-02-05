@@ -1,24 +1,25 @@
-class DogStore {
-    #breeds;
-    chosenBreed;
-    chosenSubBreed;
+import {createStore} from 'vuex';
 
-    constructor() {
-        this.#breeds = [];
+
+const dogStore = createStore({
+        state() {
+            return {
+                selectedBreed: null
+            }
+        },
+
+        getters: {
+            selectedBreed(state) {
+                return state.selectedBreed;
+            }
+        },
+
+        mutations: {
+            setSelectedBreed(state, breed) {
+                state.selectedBreed = breed;
+            }
+        }
     }
-
-    set breeds(val){
-        this.#breeds = val;
-
-        // updatelogic
-        console.log('updated breeds list: ', this.breeds);
-    }
-
-    get breeds(){
-        return this.#breeds;
-    }
-}
-
-const dogStore = new DogStore();
+);
 
 export default dogStore;

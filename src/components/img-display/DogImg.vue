@@ -6,6 +6,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'DogImg',
     props:{
@@ -17,6 +18,9 @@ export default {
             type: String,
             default: null
         }
+    },
+    created(){
+
     }
 }
 </script>
