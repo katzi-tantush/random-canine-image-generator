@@ -1,5 +1,7 @@
 class DogStore {
     #breeds;
+    chosenBreed;
+    chosenSubBreed;
 
     constructor() {
         this.#breeds = [];

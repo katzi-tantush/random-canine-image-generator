@@ -1,12 +1,10 @@
 <template>
     <div>
         <ul>
-            <li v-for="breed in breeds" :key="breed.name">
-            <Breed :breedName="breed.name" :subBreeds="breed.subBreeds"/>
-
+            <li v-for="breed in breedsList" :key="breed.name">
+                <Breed :breedName="breed.name" :subBreeds="breed.subBreeds"/>
             </li>
         </ul>
-        <!-- {{breeds}} -->
     </div>
 </template>
 
@@ -18,13 +16,7 @@ export default {
     components:{
         Breed
     },
-    props: ['breeds']
-    // {
-    //     breeds: {
-    //         type: Array,
-    //         default: []
-    //     }
-    // }
+    props: ['breedsList']
 }
 </script>
 

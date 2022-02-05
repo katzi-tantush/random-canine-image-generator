@@ -1,7 +1,7 @@
 class Factory {
     resToBreedArr(obj) {
         let keys = Object.keys(obj);
-
+        
         return keys.map(key => {
             
             let itemFromKey = {
