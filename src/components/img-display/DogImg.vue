@@ -1,7 +1,6 @@
 <template>
-    <div>
-        Dog Img
-        <img src="" alt="">
+    <div v-if="imgSrc !== null">
+        <img class="img" :src="imgSrc" :alt="altText">
     </div>
 </template>
 
@@ -18,13 +17,12 @@ export default {
             type: String,
             default: null
         }
-    },
-    created(){
-
     }
 }
 </script>
 
 <style scoped>
-
+    .img {
+        height: 60%;
+    }
 </style>

@@ -2,7 +2,7 @@ import BaseControllerService from "./BaseControllerService";
 
 const urls = {
     baseUrl: 'https://dog.ceo/api/',
-    allBreedsEndpoint: 'breeds/list/all'
+    allBreedsEndpoint: 'breeds/list/all',
 }
 
 class CanineControllerService extends BaseControllerService {
@@ -11,8 +11,19 @@ class CanineControllerService extends BaseControllerService {
         this.allBreedsEndpoint = allBreedsEndpoint;
     }
 
+    getBreedImgUrl(breed) {
+        return `breed/${breed}/images/random`
+    }
+
     async getAllBreeds() {
         return this.baseGet(this.allBreedsEndpoint);
+    }
+
+    async getBreedImgSrc(breed) {
+        let breedImgUrl = this.getBreedImgUrl(breed);
+        let res = await this.baseGet(breedImgUrl);
+        
+        return res.data.message;
     }
 }
 

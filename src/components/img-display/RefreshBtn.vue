@@ -1,12 +1,13 @@
 <template>
     <div>
         <button>
-            Refresh Btn
+            Get random image
         </button>
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'RefreshBtn',
 }
