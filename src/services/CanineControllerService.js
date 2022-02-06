@@ -11,16 +11,16 @@ class CanineControllerService extends BaseControllerService {
         this.allBreedsEndpoint = allBreedsEndpoint;
     }
 
-    getBreedImgUrl(breed) {
-        return `breed/${breed}/images/random`
+    getBreedImgSrcsUrl(breed) {
+        return `breed/${breed}/images/random/10`;
     }
 
     async getAllBreeds() {
         return this.baseGet(this.allBreedsEndpoint);
     }
 
-    async getBreedImgSrc(breed) {
-        let breedImgUrl = this.getBreedImgUrl(breed);
+    async getBreedImgSrcs(breed) {
+        let breedImgUrl = this.getBreedImgSrcsUrl(breed);
         let res = await this.baseGet(breedImgUrl);
         
         return res.data.message;

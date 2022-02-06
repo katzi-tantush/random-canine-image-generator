@@ -8,14 +8,13 @@
                 </div>
                 <div v-else>
                     {{selectedBreed}}
-                    <img :src="selectedBreedImgSrc" :alt="selectBreed">
+                    <!-- <img :src="selectedBreedImgSrc" :alt="selectBreed"> -->
                 </div>
             </h4>
         </div>
 
-
-        <RefreshBtn @click="getBreedImgSrc(selectedBreed)"/>
-        <DogImg :imgSrc="breedImSrc" :altText="selectedBreed"/>
+        <RefreshBtn @click="getBreedImgSrcs(selectedBreed)"/>
+        <DogImgList :breed="selectedBreed" :imgSrcs="breedImSrcs"/>
         
     </div>
 </template>
@@ -23,14 +22,15 @@
 <script>
 import dogStore from '../../stores/DogStore';
 import RefreshBtn from './RefreshBtn.vue';
-import DogImg from './DogImg.vue';
-import canineControllerService from '../../services/CanineControllerService'
+import canineControllerService from '../../services/CanineControllerService';
+import DogImgList from './DogImgList.vue';
 
 export default {
     name: 'RandomDog',
     components: {
         RefreshBtn,
-        DogImg
+        // DogImg,
+        DogImgList
     },
     props:{
         breedUrl: {
@@ -42,15 +42,27 @@ export default {
     data(){
         return{
             dogStore,
-            breedImSrc: null
+            breedImSrcs: []
         }
     },
 
     methods: {
-        getBreedImgSrc(){
-            canineControllerService.getBreedImgSrc(this.selectedBreed)
-                .then(res => this.breedImSrc = res)
+        getBreedImgSrcs(){
+            if(this.selectedBreed !== null){
+               canineControllerService.getBreedImgSrcs(this.selectedBreed)
+                .then((res) => {
+                    this.setBreedImgSrcs(res)
+                    })
                 .catch(e => console.log(e));
+            } else {
+                this.promptBreedSelect();
+            }
+        },
+        setBreedImgSrcs(srcArr){
+            this.breedImSrcs = srcArr;
+        },
+        promptBreedSelect(){
+            alert('You must select a breed if you wish to see images of it!')
         }
     },
 
@@ -58,11 +70,9 @@ export default {
         selectedBreed(){
             return this.dogStore.getters.selectedBreed;
         },
-        selectedBreedImgSrc(){
-            return this.dogStore.getters.selectedBreedImgSrc;
-        }
     }
 }
+
 </script>
 
 <style scoped>

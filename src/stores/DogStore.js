@@ -5,7 +5,7 @@ const dogStore = createStore({
         state() {
             return {
                 selectedBreed: null,
-                // selectedBreedImgSrc: null
+                // breedImgSrcs: []
             }
         },
 
@@ -13,8 +13,8 @@ const dogStore = createStore({
             selectedBreed(state) {
                 return state.selectedBreed;
             },
-            // selectedBreedImgSrc(state) {
-            //     return state.selectedBreedImgSrc;
+            // getBreedImgSrcs(state) {
+            //     return state.breedImgSrcs;
             // }
         },
 
@@ -22,8 +22,8 @@ const dogStore = createStore({
             setSelectedBreed(state, breed) {
                 state.selectedBreed = breed;
             },
-            // setSelectedBreedImg(state, imgSrc) {
-            //     state.selectedBreedImgSrc = imgSrc;
+            // setBreedImgSrcs(state, breed) {
+                
             // }
         }
     }

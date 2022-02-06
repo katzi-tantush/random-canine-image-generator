@@ -1,6 +1,6 @@
 <template>
     <div v-if="imgSrc !== null">
-        <img class="img" :src="imgSrc" :alt="altText">
+        <img class="dog-img" :src="imgSrc" :alt="altText">
     </div>
 </template>
 
@@ -22,7 +22,8 @@ export default {
 </script>
 
 <style scoped>
-    .img {
-        height: 60%;
+    .dog-img{
+        height: 10em;   
+        float: right; 
     }
 </style>
