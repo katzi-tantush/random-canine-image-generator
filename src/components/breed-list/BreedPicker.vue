@@ -2,9 +2,11 @@
 <div>
     <h3>STEP RIGHT UP! PICK A BREED, ANY BREED!</h3>
     <div>
-        Press a breed to get a random photo of it:
+        Press a breed to get 10 random photos of it
     </div>
-    <BreedList :breedsList='breeds' :key="breeds.length"/>
+    <div>
+        <BreedList  class="breed-list-wrapper" :breedsList='breeds' :key="breeds.length"/>
+    </div>
 </div>
 </template>
 
@@ -35,5 +37,7 @@ import factory from '../../Factory'
 </script>
 
 <style scoped>
+    .breed-list-wrapper {
 
+    }
 </style>

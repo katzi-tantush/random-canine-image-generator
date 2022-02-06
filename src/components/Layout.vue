@@ -36,6 +36,7 @@ import RandomDog from './img-display/RandomDog.vue'
   top: 20erm;
   overflow-x: hidden;
   padding-top: 20px;
+  text-align: center;
 }
 
 .left {

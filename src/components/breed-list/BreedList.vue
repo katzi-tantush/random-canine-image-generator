@@ -1,10 +1,15 @@
 <template>
     <div>
-        <ul>
-            <li v-for="breed in breedsList" :key="breed.name">
-                <Breed :breedName="breed.name" :subBreeds="breed.subBreeds"/>
-            </li>
-        </ul>
+        <div v-for="breed in breedsList" :key="breed.name">
+            <!-- <ul> -->
+                <!-- <li v-for="breed in breedsList" :key="breed.name"> -->
+                    <Breed 
+                        :breedName="breed.name" 
+                        :subBreeds="breed.subBreeds"
+                    />
+                <!-- </li> -->
+            <!-- </ul> -->
+        </div>
     </div>
 </template>
 
@@ -21,5 +26,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

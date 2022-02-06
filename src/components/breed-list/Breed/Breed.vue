@@ -1,7 +1,9 @@
 <template>
 <!-- TODO: decide if I'm having the subreeds or not -->
-    <div @click="selectBreed()">
-        {{breedName}}
+    <div class="breed-card" @click="selectBreed()">
+        <div class="breed-text">
+            {{breedName}}
+        </div>
     </div>
 </template>
 
@@ -28,5 +30,20 @@ export default {
 </script>
 
 <style scoped>
+    .breed-card {
+        border: 1px solid;
+        border-width: medium;
+        width: 9em;
+        height: 2em;
+        display: flex;
+        justify-content: center;
+        float: left;
 
+        margin-left: 0.8em;
+        margin-right: 0.8em;
+        margin-top: 0.8em;
+    }
+    .breed-text {
+        margin: auto;
+    }
 </style>
