@@ -25,5 +25,6 @@ export default {
     .dog-img{
         height: 10em;   
         float: right; 
+        margin: 2px;
     }
 </style>

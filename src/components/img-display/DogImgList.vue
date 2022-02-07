@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="img-list">
         <DogImg v-for="src of imgSrcs" 
             :key="src"
             :imgSrc="src"
@@ -26,4 +26,11 @@ export default {
 </script>
 
 <style>
+.img-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 19px;
+}
 </style>
