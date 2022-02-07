@@ -17,6 +17,7 @@ import factory from '../../Factory'
 
     export default {
         name: 'BreedPicker',
+        
         components:{
             BreedList
         },
@@ -26,6 +27,7 @@ import factory from '../../Factory'
                 breeds: []
             };
         },
+
         created(){
             canineControllerService.getAllBreeds()
                 .then(res => {
@@ -37,7 +39,7 @@ import factory from '../../Factory'
 </script>
 
 <style scoped>
-    .breed-list-wrapper {
+    /* .breed-list-wrapper {
 
-    }
+    } */
 </style>

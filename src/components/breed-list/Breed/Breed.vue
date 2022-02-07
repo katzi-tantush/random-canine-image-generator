@@ -1,5 +1,4 @@
 <template>
-<!-- TODO: decide if I'm having the subreeds or not -->
     <div class="breed-card" @click="selectBreed()">
         <div class="breed-text">
             {{breedName}}
@@ -12,20 +11,20 @@ import dogStore from '../../../stores/DogStore'
 
 export default {
         name: 'Breed',
+        
         props: {
             breedName: String,
             subBreeds: Array    
         },
+
         components: {
         },
+
         methods:{
             selectBreed(){
                 dogStore.commit('setSelectedBreed', this.breedName);
             }
         },
-        created(){
-            // this.selectBreed();
-        }
     }
 </script>
 

@@ -8,6 +8,7 @@
 
 export default {
     name: 'DogImg',
+    
     props:{
         imgSrc:{
             type: String,

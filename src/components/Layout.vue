@@ -14,6 +14,7 @@ import RandomDog from './img-display/RandomDog.vue'
 
     export default {
         name: 'Layout',
+        
         components:{
             Header,
             BreedPicker,

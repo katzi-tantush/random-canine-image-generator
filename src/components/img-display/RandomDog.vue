@@ -8,7 +8,6 @@
                 </div>
                 <div v-else>
                     {{selectedBreed}}
-                    <!-- <img :src="selectedBreedImgSrc" :alt="selectBreed"> -->
                 </div>
             </h4>
         </div>
@@ -29,7 +28,6 @@ export default {
     name: 'RandomDog',
     components: {
         RefreshBtn,
-        // DogImg,
         DogImgList
     },
     props:{

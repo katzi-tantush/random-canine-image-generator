@@ -11,12 +11,13 @@ class CanineControllerService extends BaseControllerService {
         this.allBreedsEndpoint = allBreedsEndpoint;
     }
 
-    getBreedImgSrcsUrl(breed) {
-        return `breed/${breed}/images/random/10`;
-    }
-
+    // 
     async getAllBreeds() {
         return this.baseGet(this.allBreedsEndpoint);
+    }
+
+    getBreedImgSrcsUrl(breed) {
+        return `breed/${breed}/images/random/10`;
     }
 
     async getBreedImgSrcs(breed) {

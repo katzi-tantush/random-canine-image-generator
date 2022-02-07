@@ -1,11 +1,10 @@
 import {createStore} from 'vuex';
 
-
+// vuex state store for communication between distant components
 const dogStore = createStore({
         state() {
             return {
                 selectedBreed: null,
-                // breedImgSrcs: []
             }
         },
 
@@ -13,18 +12,12 @@ const dogStore = createStore({
             selectedBreed(state) {
                 return state.selectedBreed;
             },
-            // getBreedImgSrcs(state) {
-            //     return state.breedImgSrcs;
-            // }
         },
 
         mutations: {
             setSelectedBreed(state, breed) {
                 state.selectedBreed = breed;
             },
-            // setBreedImgSrcs(state, breed) {
-                
-            // }
         }
     }
 );
