@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Breed from './Breed/Breed.vue'
+import Breed from './Breed.vue'
 
 export default {
     name: 'BreedList',

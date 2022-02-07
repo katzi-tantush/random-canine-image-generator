@@ -13,11 +13,11 @@
 <script>
 import BreedList from './BreedList.vue'
 import canineControllerService from '../../services/CanineControllerService'
-import factory from '../../Factory'
+// import factory from '../../Factory'
 
     export default {
         name: 'BreedPicker',
-        
+
         components:{
             BreedList
         },
@@ -31,8 +31,11 @@ import factory from '../../Factory'
         created(){
             canineControllerService.getAllBreeds()
                 .then(res => {
-                    this.breeds = factory.resToBreedArr(res.data.message);
+                    this.breeds = res;
                 })
+                // .then(res => {
+                //     this.breeds = factory.resToBreedArr(res.data.message);
+                // })
                 .catch(e => console.log(e));
         }
     }

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import dogStore from '../../../stores/DogStore'
+import dogStore from '../../stores/DogStore'
 
 export default {
         name: 'Breed',

@@ -1,4 +1,5 @@
 import BaseControllerService from "./BaseControllerService";
+import factory from '../Factory';
 
 const urls = {
     baseUrl: 'https://dog.ceo/api/',
@@ -11,17 +12,26 @@ class CanineControllerService extends BaseControllerService {
         this.allBreedsEndpoint = allBreedsEndpoint;
     }
 
-    // 
+    // returns an array of breed objects, each breed has an array of subBreeds
     async getAllBreeds() {
-        return this.baseGet(this.allBreedsEndpoint);
+        let breedsRes = await this.baseGet(this.allBreedsEndpoint);
+        if (breedsRes.status !== 200) {
+            throw new Error('breedRes failed to get data: ', breedsRes);
+        }
+        
+        let breedsArr = factory.objToBreedArray(breedsRes.data.message)
+
+        return breedsArr;
     }
 
-    getBreedImgSrcsUrl(breed) {
+    // builds the endpoint for the image sources api call
+    buildBreedImgSrcsUrl(breed) {
         return `breed/${breed}/images/random/10`;
     }
 
+    // returns 10 random image sources for the given breed
     async getBreedImgSrcs(breed) {
-        let breedImgUrl = this.getBreedImgSrcsUrl(breed);
+        let breedImgUrl = this.buildBreedImgSrcsUrl(breed);
         let res = await this.baseGet(breedImgUrl);
         
         return res.data.message;
