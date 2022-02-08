@@ -14,6 +14,15 @@
             </template>
           </carousel>
         </div>
+
+        <div class="btn-wrapper">
+            <button 
+                class="btn btn-light"
+                @click="this.updateImgSrcs(this.breed)"
+            >
+            Refresh Images
+            </button>
+        </div>
     </div>
 </template>
 
@@ -81,5 +90,11 @@ export default {
   box-sizing: content-box;
   border: 5px solid white;
 }
+
+.btn-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
 
 </style>
