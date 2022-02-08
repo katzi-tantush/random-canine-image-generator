@@ -4,7 +4,10 @@
             @click="toggleSidebar" 
             class="sidebar-dog">
             <i class="fas fa-dog" style="height: 6vh"></i>
-            Breed Menu
+            Breed Menu 
+            <span v-if="selectedBreed" class="viewing-breed">
+                currently viewing - "{{selectedBreed}}""
+            </span>
         </div>
         <div class="sidebar" :style="{ width: sidebarWidth }">
             <div v-if="!collapsed">
@@ -15,6 +18,7 @@
 </template>
 
 <script>
+import dogStore from '../stores/DogStore'
 import BreedPicker from './breed-list/BreedPicker.vue'
 
 export default {
@@ -30,6 +34,12 @@ export default {
         return {
             collapsed: true,
             sidebarWidth: '0em'
+        }
+    },
+
+    computed: {
+        selectedBreed(){
+            return dogStore.getters.selectedBreed;
         }
     },
 
@@ -66,5 +76,10 @@ div .sidebar-dog {
     left: 1em;
     top: 1em;
     color: aliceblue;
+}
+
+.viewing-breed{
+    margin-left: 1em;
+    border-bottom: 1px solid white;;
 }
 </style>

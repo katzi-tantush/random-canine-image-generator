@@ -54,6 +54,7 @@ export default {
         setImgSrcs(srcs){
             this.imgSrcs = srcs;
         },
+        // updates the random images to be viewed
         updateImgSrcs(breed){
             canineControllerService.getBreedImgSrcs(breed)
                 .then(res => this.setImgSrcs(res))
@@ -63,6 +64,13 @@ export default {
 
     created(){
         this.updateImgSrcs(this.breed);
+    },
+
+    watch: {
+        // called when breed changes
+        breed(){
+            this.updateImgSrcs(this.breed);
+        }
     }
 }
 </script>
