@@ -7,6 +7,7 @@ export default class BaseControllerService{
     }
 
     async baseGet(endpoint) {
-        return axios.get(`${this.baseUrl}${endpoint}`);
+        let url = `${this.baseUrl}${endpoint}`;
+        return axios.get(url.toLocaleLowerCase());
     }
 }

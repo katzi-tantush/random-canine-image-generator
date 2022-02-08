@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="breed in breedsList" :key="breed.name">
+        <div v-for="breed in filteredBreeds" :key="breed.name">
                     <Breed 
                         :breedName="breed.name" 
                         :subBreeds="breed.subBreeds"
@@ -23,7 +23,26 @@ export default {
         Breed
     },
 
-    props: ['breedsList']
+    props: ['breedsList', 'filterVal'],
+
+    data(){
+        return {
+            filteredBreeds: this.breedsList
+        }
+    },
+
+    watch: {
+        filterVal(){
+            if (this.filterVal !== ''){
+                this.filteredBreeds = this.breedsList.filter(breed => 
+                    breed.name.toLowerCase().indexOf(this.filterVal.toLowerCase()) > -1
+                    );
+            } else {
+                this.filteredBreeds = this.breedsList;
+            }
+        }
+    }
+
 }
 </script>
 
