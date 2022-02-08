@@ -1,52 +1,43 @@
 <template>
 <div class="app-wrapper">   
     <Header title='Random Canines Galore'/>
-    <BreedPicker class="split left"/>
-    <RandomDog class="split right"/>
+    <RandomDog/>
+    <SideBar/>
 </div>
 </template>
 
 <script>
+import canineControllerService from '../services/CanineControllerService'
+import dogStore from '../stores/DogStore'
 import Header from './Header.vue'
-import BreedPicker from './breed-list/BreedPicker.vue'
-import RandomDog from './img-display/RandomDog.vue'
-
+import RandomDog from './diplay-area/RandomDog.vue'
+import  SideBar from './SideBar.vue'
 
     export default {
         name: 'Layout',
-        
+
         components:{
             Header,
-            BreedPicker,
-            RandomDog
+            RandomDog,
+            SideBar
+        },
+
+        created(){
+          canineControllerService.getAllBreeds()
+            .then(res => dogStore.commit('setAllBreeds', res))
+            .catch(e => console.log(e));
         }
     }
 </script>
 
-<style scoped>
-.app-wrapper{
-    height: 100%;
-  width: 100%;
+<style >
+body {
+  margin: 0;
 }
 
-    .split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 20erm;
-  overflow-x: hidden;
-  padding-top: 20px;
-  text-align: center;
-}
-
-.left {
-  left: 0;
-  background-color: rgb(216, 216, 216);
-}
-
-.right {
-  right: 0;
-  background-color: rgb(255, 145, 145);
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 </style>

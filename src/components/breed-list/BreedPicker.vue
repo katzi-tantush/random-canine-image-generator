@@ -1,19 +1,14 @@
 <template>
 <div>
-    <h3>STEP RIGHT UP! PICK A BREED, ANY BREED!</h3>
-    <div>
-        Press a breed to get 10 random photos of it
-    </div>
-    <div>
-        <BreedList  class="breed-list-wrapper" :breedsList='breeds' :key="breeds.length"/>
+    <div class="breed-list-wrapper">
+        <BreedList :breedsList='allBreeds' :key="allBreeds.length"/>
     </div>
 </div>
 </template>
 
 <script>
-import BreedList from './BreedList.vue'
-import canineControllerService from '../../services/CanineControllerService'
-// import factory from '../../Factory'
+import BreedList from './BreedList.vue';
+import dogStore from '../../stores/DogStore';
 
     export default {
         name: 'BreedPicker',
@@ -22,27 +17,18 @@ import canineControllerService from '../../services/CanineControllerService'
             BreedList
         },
         
-        data(){
-            return {
-                breeds: []
-            };
+         computed:{
+          allBreeds(){
+            return dogStore.getters.allBreeds;
+          }
         },
-
-        created(){
-            canineControllerService.getAllBreeds()
-                .then(res => {
-                    this.breeds = res;
-                })
-                // .then(res => {
-                //     this.breeds = factory.resToBreedArr(res.data.message);
-                // })
-                .catch(e => console.log(e));
-        }
     }
 </script>
 
 <style scoped>
-    /* .breed-list-wrapper {
-
-    } */
+.breed-list-wrapper {
+    margin-top: 9px;
+    height: 89vh;
+    overflow-y: scroll;
+}
 </style>

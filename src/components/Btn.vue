@@ -1,7 +1,9 @@
 <template>
     <div>
         <button>
-            Get random image
+            <h5>
+                {{text}}
+            </h5>
         </button>
     </div>
 </template>
@@ -9,7 +11,9 @@
 <script>
 
 export default {
-    name: 'RefreshBtn',
+    name: 'Btn',
+
+    props: ['text']
 }
 </script>
 

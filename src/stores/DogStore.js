@@ -1,10 +1,13 @@
 import {createStore} from 'vuex';
+// import canineControllerService from '../services/CanineControllerService';
 
 // vuex state store for communication between distant components
 const dogStore = createStore({
         state() {
-            return {
+        return {
+                allBreeds: [],
                 selectedBreed: null,
+                breedImgSrcs: []
             }
         },
 
@@ -12,14 +15,22 @@ const dogStore = createStore({
             selectedBreed(state) {
                 return state.selectedBreed;
             },
+            allBreeds(state) {
+                return state.allBreeds;
+            },
         },
 
         mutations: {
             setSelectedBreed(state, breed) {
                 state.selectedBreed = breed;
             },
+            setAllBreeds(state, breeds) {
+                state.allBreeds = breeds;
+            },
         }
     }
 );
+
+dogStore.subscribe()
 
 export default dogStore;

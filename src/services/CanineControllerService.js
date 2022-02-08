@@ -33,6 +33,10 @@ class CanineControllerService extends BaseControllerService {
     async getBreedImgSrcs(breed) {
         let breedImgUrl = this.buildBreedImgSrcsUrl(breed);
         let res = await this.baseGet(breedImgUrl);
+
+        if (res.status !== 200) {
+            throw new Error('getBreedImgSrcs failed to get data: ', res);
+        }
         
         return res.data.message;
     }
